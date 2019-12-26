@@ -17,7 +17,10 @@ Dark green: #28b485
 }
 
 html {
-  font-size: 62.5%; /*set to a percentage*/
+  font-size: 62.5%;
+  /*set to a percentage for user settings; we get this percentage because we wanted 10px to be the default and 16px is the browser default, so 10/16.
+  always start with 10px and then set the other values to base-10 rem; change to percentage whenever.
+  */
 }
 
 body {
