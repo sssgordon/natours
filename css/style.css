@@ -20,3 +20,7 @@ body {
   line-height: 1.7;
   color: #777;
 }
+
+.header {
+  height: 95vh;
+}
