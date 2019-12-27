@@ -1,0 +1,36 @@
+@use '../abstracts/mixins';
+@use '../abstracts/variables';
+
+.row {
+    max-width: variables.$grid-width; // 1140px grid is industry standard these days
+    background-color: #eee;
+    margin: 0 auto;
+
+    &:not(:last-child) {
+        // set margin-bottom EXCEPT the last-child
+        margin-bottom: variables.$gutter-vertical;
+    }
+
+    @include mixins.clearfix; // clearfix hack for floats so that the height does not collapse
+
+    [class^="col-"] {
+        background-color: orangered;
+        float: left; // since we're floating, we need CLEARFIX hack
+
+        &:not(:last-child) {
+            // every col EXCEPT the last-child has margin-right as gutter
+            margin-right: variables.$gutter-horizontal;
+        }
+    }
+    // "^=" means "start with"
+
+    .col-1-of-2 {
+        width: calc(
+            (100% - #{variables.$gutter-horizontal}) / 2
+        ); // calc requires interpolation on sass variables
+    }
+
+    .col-1-of-3 {
+        width: calc((100% - 2 * #{variables.$gutter-horizontal}) / 3);
+    }
+}
