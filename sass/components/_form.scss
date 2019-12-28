@@ -1,0 +1,55 @@
+@use "../abstracts/variables";
+
+.form {
+    &__group:not(:last-child) {
+        margin-bottom: 2rem;
+    }
+
+    &__input {
+        font-size: 1.5rem;
+        padding: 1.5rem 2rem;
+        border-radius: 2px;
+        background-color: rgba(variables.$color-white, 0.5);
+        border: none;
+        color: inherit;
+        font-family: inherit; // browswer does not inherit, so we set manually
+        border-bottom: 3px solid transparent; // so that the border-bottom at :focus doesn't create extra space when selected
+        width: 90%;
+        display: block;
+
+        &:focus {
+            // tells user which form element is selected
+            outline: none;
+            box-shadow: 0 1rem 2rem rgba(variables.$color-black, 0.1);
+            border-bottom: 3px solid variables.$color-primary;
+        }
+
+        &:focus:invalid {
+            // when there is an invalid, focused element, then...
+            border-bottom: 3px solid variables.$color-secondary-dark;
+        }
+
+        &::-webkit-input-placeholder {
+            // this pseudo class selects the placeholder
+            color: variables.$color-grey-dark-2;
+        }
+    }
+
+    &__label {
+        font-size: 1.4rem;
+        font-weight: 700;
+        margin-left: 2rem;
+        margin-top: 0.7rem;
+        display: block; // need to be block to use box-model properties
+        transform: translate(0);
+        transition: all 0.3s;
+    }
+
+    &__input:placeholder-shown + &__label {
+        // when the placeholder is shown
+        // + adjacent sibling selector
+        opacity: 0; // we can animate opacity but not visibility
+        visibility: hidden; // the element is off the page
+        transform: translateY(-4rem);
+    }
+}

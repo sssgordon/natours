@@ -38,3 +38,32 @@
     padding: 15rem 0 15rem;
     position: relative;
 }
+
+.section-book {
+    padding: 15rem 0;
+    background-image: linear-gradient(
+        to right bottom,
+        variables.$color-primary-light,
+        variables.$color-primary-dark
+    );
+}
+
+.book {
+    background-image: linear-gradient(
+            105deg,
+            rgba(variables.$color-white, 0.9) 0%,
+            rgba(variables.$color-white, 0.9) 50%,
+            transparent 50%
+        ),
+        url(../../img/nat-10.jpg); // solid color gradient: at 50% it is white, at 50% it is transparent, so no space for gradient
+    background-size: cover;
+    border-radius: 3px;
+    box-shadow: 0 1.5rem 4rem rgba(variables.$color-black, 0.2);
+
+    height: 50rem;
+
+    &__form {
+        width: 50%;
+        padding: 6rem;
+    }
+}
