@@ -1,0 +1,72 @@
+@use "../abstracts/variables";
+
+.story {
+    width: 75%;
+    margin: 0 auto;
+    box-shadow: 0 3rem 6rem rgba(variables.$color-black, 0.1);
+    background-color: rgba(variables.$color-white, 0.6);
+    border-radius: 3px;
+    padding: 6rem;
+    padding-left: 9rem; // since the shape translates 3rem to the left, we add back 3rem of padding-left
+    transform: skewX(-12deg);
+
+    // & > * {
+    //     transform: skewX(12deg);
+    // }
+    // this doesn't work on its own because the children elements can only have 1 transform property; we have to do the unskewing manually
+
+    &__shape {
+        width: 15rem;
+        height: 15rem;
+        float: left; // only works with there's a width and a height
+        -webkit-shape-outside: circle(50% at 50% 50%);
+        shape-outside: circle(
+            50% at 50% 50%
+        ); // radius: 50% of the specified width; center of the circle: 50% 50%
+        -webkit-clip-path: circle(50% at 50% 50%);
+        clip-path: circle(50% at 50% 50%);
+        transform: translateX(-3rem) skewX(12deg); // translateX adds space between the shape and text; DO NOT MESS WITH MARGIN
+        position: relative;
+    }
+
+    &__image {
+        height: 100%; // not width b/c the image is wider than its height
+        transform: translateX(-4rem) scale(1.4); // this center's the image to the circle
+        backface-visibility: hidden; // fixes many weird things with translation and animation
+        transition: all 0.5s;
+    }
+
+    &__text {
+        transform: skewX(12deg);
+    }
+
+    &__caption {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(
+            -50%,
+            20%
+        ); // Y is set to 20 because of animation init state
+
+        color: variables.$color-white;
+        text-transform: uppercase;
+        font-size: 1.7rem;
+        text-align: center;
+        opacity: 0;
+
+        transition: all 0.5s;
+        backface-visibility: hidden; // fix to the tiny shake at the end of animation
+    }
+
+    &:hover &__caption {
+        // when story:hover, change story___caption
+        opacity: 1;
+        transform: translate(-50%, -50%); // you know y this is -50% ;)
+    }
+
+    &:hover &__image {
+        transform: translateX(-4rem) scale(1);
+        filter: blur(3px) brightness(80%);
+    }
+}
