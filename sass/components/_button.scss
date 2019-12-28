@@ -37,6 +37,15 @@
         }
     }
 
+    &--green {
+        background-color: variables.$color-primary;
+        color: variables.$color-white;
+
+        &::after {
+            background-color: variables.$color-primary;
+        }
+    }
+
     &::after {
         content: "";
         display: inline-block; /*same as the element*/

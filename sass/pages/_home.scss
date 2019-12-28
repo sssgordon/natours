@@ -27,3 +27,9 @@
         transform: skewY(7deg); // unskew the content
     }
 }
+
+.section-tours {
+    background-color: variables.$color-grey-light-1;
+    padding: 25rem 0 15rem 0;
+    margin-top: -11rem;
+}
