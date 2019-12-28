@@ -1,0 +1,7 @@
+@use '../abstracts/variables';
+
+.section-about {
+    background-color: variables.$color-grey-light-1;
+    padding: 25rem 0;
+    margin-top: -20vh;
+}

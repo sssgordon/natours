@@ -18,5 +18,8 @@
   "homepage": "https://github.com/sssgordon/natours#readme",
   "devDependencies": {
     "node-sass": "^4.13.0"
+  },
+  "dependencies": {
+    "emmet": "^2.0.0-rc.9"
   }
 }

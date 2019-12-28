@@ -3,7 +3,7 @@
 
 .row {
     max-width: variables.$grid-width; // 1140px grid is industry standard these days
-    background-color: #eee;
+    // background-color: #eee;
     margin: 0 auto;
 
     &:not(:last-child) {
@@ -14,7 +14,7 @@
     @include mixins.clearfix; // clearfix hack for floats so that the height does not collapse
 
     [class^="col-"] {
-        background-color: orangered;
+        // background-color: orangered;
         float: left; // since we're floating, we need CLEARFIX hack
 
         &:not(:last-child) {
@@ -32,5 +32,27 @@
 
     .col-1-of-3 {
         width: calc((100% - 2 * #{variables.$gutter-horizontal}) / 3);
+    }
+
+    .col-2-of-3 {
+        width: calc(
+            2 * ((100% - 2 * #{variables.$gutter-horizontal}) / 3) + #{variables.$gutter-horizontal}
+        ); // the width is 2 times col-1-of-3 plus gutter
+    }
+
+    .col-1-of-4 {
+        width: calc((100% - 3 * #{variables.$gutter-horizontal}) / 4);
+    }
+
+    .col-2-of-4 {
+        width: calc(
+            2 * ((100% - 3 * #{variables.$gutter-horizontal}) / 4) + #{variables.$gutter-horizontal}
+        );
+    }
+
+    .col-3-of-4 {
+        width: calc(
+            3 * ((100% - 3 * #{variables.$gutter-horizontal}) / 4) + 2 * #{variables.$gutter-horizontal}
+        );
     }
 }
