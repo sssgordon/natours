@@ -16,6 +16,7 @@
         border-bottom: 3px solid transparent; // so that the border-bottom at :focus doesn't create extra space when selected
         width: 90%;
         display: block;
+        transition: all 0.3s;
 
         &:focus {
             // tells user which form element is selected
@@ -51,5 +52,56 @@
         opacity: 0; // we can animate opacity but not visibility
         visibility: hidden; // the element is off the page
         transform: translateY(-4rem);
+    }
+
+    &__radio-group {
+        width: 49%;
+        display: inline-block;
+    }
+
+    &__radio-input {
+        display: none; // hides the radio input
+    }
+
+    &__radio-label {
+        font-size: variables.$default-font-size;
+        cursor: pointer;
+        position: relative;
+        padding-left: 4.5rem;
+    }
+
+    &__radio-btn {
+        //custom button; hide radio-input later
+        height: 3rem;
+        width: 3rem;
+        border: 5px solid variables.$color-primary;
+        border-radius: 50%; // makes round
+        display: inline-block;
+        position: absolute;
+        left: 0;
+        top: -0.4rem;
+
+        &::after {
+            //pseudo class must-haves:
+            content: "";
+            display: block;
+            // how to make a circle:
+            height: 1.3rem;
+            width: 1.3rem;
+            border-radius: 50%;
+
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: variables.$color-primary;
+            opacity: 0;
+            transition: opacity 0.2s;
+        }
+    }
+
+    &__radio-input:checked ~ &__radio-label &__radio-btn::after {
+        // when radio-input is checked, we select its sibling radio-label's child radio-btn's after pseudo-class
+        opacity: 1;
     }
 }
