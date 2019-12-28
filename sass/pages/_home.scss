@@ -5,3 +5,25 @@
     padding: 25rem 0;
     margin-top: -20vh;
 }
+
+.section-features {
+    padding: 20rem 0;
+    background-image: linear-gradient(
+            to right bottom,
+            rgba(variables.$color-primary-light, 0.8),
+            rgba(variables.$color-primary-dark, 0.8)
+        ),
+        url(../img/nat-4.jpg);
+    background-size: cover;
+    background-position: top;
+    margin-top: -11rem; // margin-top
+
+    transform: skewY(-7deg); // alternative to clip-path
+    // two problems: margin top; unskew content
+    // notice the background-image is also skewed; solution: clip-path instead
+
+    & > * {
+        // > selects DIRECT child, which is .row
+        transform: skewY(7deg); // unskew the content
+    }
+}
