@@ -1,4 +1,5 @@
 @use "../abstracts/variables";
+@use "../abstracts/mixins";
 
 .story {
     width: 75%;
@@ -15,6 +16,16 @@
     // }
     // this doesn't work on its own because the children elements can only have 1 transform property; we have to do the unskewing manually
 
+    @include mixins.respond(tab-port) {
+        width: 100%;
+        padding: 4rem;
+        padding-left: 7rem;
+    }
+
+    @include mixins.respond(phone) {
+        transform: skewX(0);
+    }
+
     &__shape {
         width: 15rem;
         height: 15rem;
@@ -27,6 +38,10 @@
         clip-path: circle(50% at 50% 50%);
         transform: translateX(-3rem) skewX(12deg); // translateX adds space between the shape and text; DO NOT MESS WITH MARGIN
         position: relative;
+
+        @include mixins.respond(phone) {
+            transform: translateX(-3rem) skewX(0);
+        }
     }
 
     &__image {
@@ -38,6 +53,10 @@
 
     &__text {
         transform: skewX(12deg);
+
+        @include mixins.respond(phone) {
+            transform: skewX(0);
+        }
     }
 
     &__caption {

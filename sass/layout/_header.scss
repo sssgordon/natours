@@ -1,4 +1,5 @@
 @use '../abstracts/variables';
+@use "../abstracts/mixins";
 
 .header {
     height: 95vh;
@@ -14,6 +15,16 @@
 
     -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
     clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+
+    @include mixins.respond(tab-land) {
+        -webkit-clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 100%);
+        clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 100%);
+    }
+
+    @include mixins.respond(tab-port) {
+        -webkit-clip-path: polygon(0 0, 100% 0, 100% 90vh, 0 100%);
+        clip-path: polygon(0 0, 100% 0, 100% 90vh, 0 100%);
+    }
 
     &__logo-box {
         position: absolute;

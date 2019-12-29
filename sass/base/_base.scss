@@ -1,21 +1,48 @@
 @use '../abstracts/variables';
+@use "../abstracts/mixins";
 
 *,
 *::after,
 *::before {
-  margin: 0;
-  padding: 0;
+    margin: 0;
+    padding: 0;
 
-  box-sizing: inherit;
+    box-sizing: inherit;
 }
 
 html {
-  font-size: 62.5%;
-  // this defines what 1rem is
-  // @at-root to a percentage for user settings; we get this percentage because we wanted 10px to be the default and 16px is the browser default, so 10/16.
-  // always start with 10px and then set the other values to base-10 rem; change to percentage whenever.
+    font-size: 62.5%;
+    // this defines what 1rem is
+    // @at-root to a percentage for user settings; we get this percentage because we wanted 10px to be the default and 16px is the browser default, so 10/16.
+    // always start with 10px and then set the other values to base-10 rem; change to percentage whenever.
+
+    // ORDER IS KEY: larger breakpoint > smaller
+    @include mixins.respond(tab-land) {
+        // width < 1200?
+        font-size: 56.25%; // 1rem = 9px; 9/16 = 56.25%
+    }
+
+    @include mixins.respond(tab-port) {
+        // width < 900?
+        font-size: 50%; // if I want 1rem = 8px; 8/16 = 50%
+    }
+
+    // @include mixins.respond(phone) {
+    //     font-size: 50%;
+    // }
+    // this is not needed because the screen is lower than 900px, and also 50% font-size
+
+    @include mixins.respond(big-desktop) {
+        font-size: 75%; // 1rem = 12px; 12/16 = 75%
+    }
 }
 
 body {
-  box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 3rem;
+
+    @include mixins.respond(tab-port) {
+        // width < 900?
+        padding: 0;
+    }
 }

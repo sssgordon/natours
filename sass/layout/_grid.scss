@@ -9,20 +9,42 @@
     &:not(:last-child) {
         // set margin-bottom EXCEPT the last-child
         margin-bottom: variables.$gutter-vertical;
+
+        @include mixins.respond(tab-port) {
+            margin-bottom: variables.$gutter-vertical-small;
+        }
+    }
+
+    @include mixins.respond(tab-port) {
+        max-width: 65rem;
+        padding: 0 3rem;
+    }
+
+    @include mixins.respond(phone) {
+        max-width: 50rem;
     }
 
     @include mixins.clearfix; // clearfix hack for floats so that the height does not collapse
 
     [class^="col-"] {
+        // "^=" means "start with"
         // background-color: orangered;
         float: left; // since we're floating, we need CLEARFIX hack
 
         &:not(:last-child) {
             // every col EXCEPT the last-child has margin-right as gutter
             margin-right: variables.$gutter-horizontal;
+
+            @include mixins.respond(tab-port) {
+                margin-right: 0; // we don't need gutter when single column
+                margin-bottom: variables.$gutter-vertical-small;
+            }
+        }
+
+        @include mixins.respond(tab-port) {
+            width: 100% !important; // so that the width below are overwritten
         }
     }
-    // "^=" means "start with"
 
     .col-1-of-2 {
         width: calc(

@@ -1,4 +1,5 @@
 @use "../abstracts/variables";
+@use "../abstracts/mixins";
 
 .form {
     &__group:not(:last-child) {
@@ -34,6 +35,10 @@
             // this pseudo class selects the placeholder
             color: variables.$color-grey-dark-2;
         }
+
+        @include mixins.respond(tab-port) {
+            width: 100%;
+        }
     }
 
     &__label {
@@ -57,6 +62,11 @@
     &__radio-group {
         width: 49%;
         display: inline-block;
+
+        @include mixins.respond(phone) {
+            width: 100%;
+            margin-bottom: 2rem;
+        }
     }
 
     &__radio-input {
