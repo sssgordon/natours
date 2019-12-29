@@ -1,0 +1,172 @@
+@use '../abstracts/variables';
+
+.navigation {
+    &__checkbox {
+        display: none;
+    }
+
+    &__btn {
+        background-color: variables.$color-white;
+        height: 7rem;
+        width: 7rem;
+        border-radius: 50%;
+        position: fixed;
+        top: 6rem;
+        right: 6rem;
+        z-index: 2000;
+        box-shadow: 0 1rem 3rem rgba(variables.$color-black, 0.1);
+        text-align: center; // center the hamburger
+        cursor: pointer;
+    }
+
+    &__background {
+        height: 6rem;
+        width: 6rem;
+        border-radius: 50%;
+        position: fixed;
+        top: 6.5rem;
+        right: 6.5rem;
+        background-image: radial-gradient(
+            variables.$color-primary-light,
+            variables.$color-primary-dark
+        );
+        z-index: 1000;
+
+        transition: transform 0.8s cubic-bezier(0.86, 0, 0.07, 1); // easeInOutQuint
+    }
+
+    &__nav {
+        height: 100vh;
+        width: 0; // this only puts the buttons on the side... not 100% working
+        visibility: hidden; // this TRULY takes the buttons out of the page
+        position: fixed;
+        top: 0;
+        right: 0;
+        z-index: 1500;
+
+        opacity: 0;
+
+        transition: width 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55),
+            // easeInOutBack
+                opacity 0.8s cubic-bezier(
+                    0.68,
+                    -0.55,
+                    0.265,
+                    1.55
+                ); // this selects the properties to transition, EXCEPT visibility which shouldn't be animated
+    }
+
+    &__list {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        list-style: none;
+        text-align: center;
+    }
+
+    &__item {
+        margin: 1rem;
+    }
+
+    &__link {
+        &:link,
+        &:visited {
+            display: inline-block;
+            font-size: 3rem;
+            font-weight: 300;
+            padding: 1rem 2rem;
+            color: variables.$color-white;
+            text-decoration: none;
+            text-transform: uppercase;
+            background-image: linear-gradient(
+                120deg,
+                transparent 0%,
+                transparent 50%,
+                variables.$color-white 50%
+            );
+            background-size: 225%; // gradient size
+            transition: all 0.4s;
+            transform: translate(0);
+
+            span {
+                margin-right: 1.5rem;
+                display: inline-block;
+            }
+        }
+
+        &:hover,
+        &:active {
+            background-position: 100%; // gradient position, animate this
+            color: variables.$color-primary;
+            transform: translateX(1rem);
+        }
+    }
+
+    // FUNCTIONALITY
+
+    &__checkbox:checked ~ &__background {
+        transform: scale(80);
+    }
+
+    &__checkbox:checked ~ &__nav {
+        opacity: 1;
+        width: 100%;
+        visibility: visible;
+    }
+
+    // ICON
+
+    &__icon {
+        // customized hamburger button with pseudo classes
+        position: relative;
+        margin-top: 3.5rem; // locate the hamburger
+
+        &,
+        &::before,
+        &::after {
+            width: 3rem;
+            height: 2px;
+            background-color: variables.$color-grey-dark-3;
+            display: inline-block;
+        }
+
+        &::before,
+        &::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            transition: all 0.2s;
+        }
+
+        &::before {
+            top: -0.8rem;
+        }
+
+        &::after {
+            top: 0.8rem;
+        }
+    }
+
+    &__btn:hover &__icon::before {
+        top: -1rem;
+    }
+
+    &__btn:hover &__icon::after {
+        top: 1rem;
+    }
+
+    &__checkbox:checked + &__btn &__icon {
+        background-color: transparent;
+    } // makes the middle line disappear on click
+
+    &__checkbox:checked + &__btn &__icon::before {
+        transform: rotate(135deg);
+        top: 0;
+    }
+
+    &__checkbox:checked + &__btn &__icon::after {
+        transform: rotate(-135deg);
+        top: 0;
+    }
+}
