@@ -1,0 +1,95 @@
+@use "../abstracts/variables";
+@use "../abstracts/mixins";
+
+.popup {
+    height: 100vh;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(variables.$color-black, 0.8);
+    z-index: 9999;
+
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s;
+
+    &__content {
+        @include mixins.absCenter;
+
+        width: 75%;
+        background-color: variables.$color-white;
+        box-shadow: 0 2rem 4rem rgba(variables.$color-black, 0.2);
+        border-radius: 3px;
+        display: table; // parent element: table
+        overflow: hidden;
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.25); // there can only be one transform, so we need to manually repeat the one from mixin
+        transition: all 0.5s 0.2s;
+    }
+
+    &__left {
+        width: 33.333333333%;
+        display: table-cell; // child element: table-cell; this makes left and right the same height, easy for vertical align center
+    }
+
+    &__right {
+        width: 66.666666667%;
+        display: table-cell; // child element: table-cell
+        vertical-align: middle;
+        padding: 3rem 5rem;
+    }
+
+    &__img {
+        display: block;
+        width: 100%;
+    }
+
+    &__text {
+        font-size: 1.4rem;
+        margin-bottom: 4rem;
+
+        -moz-column-count: 2;
+        -moz-column-gap: 4rem;
+        -moz-column-rule: 1px solid variables.$color-grey-light-2;
+
+        column-count: 2; // splits the paragraph into 2 columns
+        column-gap: 4rem;
+        column-rule: 1px solid variables.$color-grey-light-2;
+
+        -webkit-hyphens: auto;
+        -moz-hyphens: auto;
+        -ms-hyphens: auto;
+        hyphens: auto; // need to define document language;
+    }
+
+    &:target {
+        // when the anchor brings to this target
+        opacity: 1;
+        visibility: visible;
+    }
+
+    &:target &__content {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
+
+    &__close {
+        &:link,
+        &:visited {
+            color: variables.$color-grey-dark;
+            position: absolute;
+            top: 2.5rem;
+            right: 2.5rem;
+            font-size: 3rem;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.2s;
+            line-height: 1;
+        }
+
+        &:hover {
+            color: variables.$color-primary;
+        }
+    }
+}
