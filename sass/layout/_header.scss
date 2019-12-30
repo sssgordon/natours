@@ -2,19 +2,39 @@
 @use "../abstracts/mixins";
 
 .header {
-    height: 95vh;
+    height: 85vh;
     background-image: linear-gradient(
             to right bottom,
             rgba(variables.$color-primary-light, 0.8),
             rgba(variables.$color-primary-dark, 0.8)
         ),
-        url(../img/hero.jpg);
+        url(../img/hero-small.jpg);
     background-size: cover;
     background-position: top;
     position: relative;
 
-    -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
-    clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+    @supports (clip-path: polygon(0 0)) or (-webkit-clip-path: polygon(0 0)) {
+        -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+        clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+        height: 95vh;
+    }
+
+    //responsive image
+    @media only screen and (min-resolution: 192dpi) and (min-width: 37.5em),
+        only screen and (-webkit-min-device-pixel-ratio: 2) and (min-width: 37.5em),
+        only screen and (min-width: 125em) {
+        // apple retina screen as a high res screen ref
+        // if res more than 192dpi && more than 600px(37.5em), then this big image
+        // density switch
+        // "," is "||"
+        // webkit is for safari; 2 means 2x
+        background-image: linear-gradient(
+                to right bottom,
+                rgba(variables.$color-primary-light, 0.8),
+                rgba(variables.$color-primary-dark, 0.8)
+            ),
+            url(../img/hero.jpg);
+    }
 
     @include mixins.respond(tab-land) {
         -webkit-clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 100%);

@@ -15,6 +15,7 @@
         top: 0;
         left: 0;
         width: 100%;
+        -webkit-backface-visibility: hidden;
         backface-visibility: hidden; // hides the back-part of element (we don't see inverted text)
         border-radius: 3px;
         overflow: hidden; // so that the image doesn't cover the border-radius
@@ -193,7 +194,9 @@
         font-weight: 100;
     }
 
-    @include mixins.respond(tab-port) {
+    // @include mixins.respond(tab-port) {
+    @media only screen and (max-width: 56.25em), only screen and (hover: none) {
+        // if width is lower than 56.25em OR if device has no hover, then:
         height: auto;
         border-radius: 3px;
         background-color: variables.$color-white;
