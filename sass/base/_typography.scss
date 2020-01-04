@@ -65,7 +65,7 @@ body {
     -webkit-background-clip: text; //clip the background to the text
     color: transparent; // make text color transparent so the background comes through
     letter-spacing: 2px; // super small so px is ok
-    transition: all 0.2s;
+    // transition: all 0.2s;
 
     @include mixins.respond(tab-port) {
         font-size: 3rem;
@@ -76,10 +76,10 @@ body {
         font-size: 2.5rem;
     }
 
-    &:hover {
-        transform: skewY(2deg) skewX(15deg) scale(1.1);
-        text-shadow: 0.5rem 1rem 2rem rgba(variables.$color-black, 0.2);
-    }
+    // &:hover {
+    //     transform: skewY(2deg) skewX(15deg) scale(1.1);
+    //     text-shadow: 0.5rem 1rem 2rem rgba(variables.$color-black, 0.2);
+    // }
 }
 
 .heading-tertiary {

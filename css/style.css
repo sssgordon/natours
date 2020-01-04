@@ -147,7 +147,6 @@ body {
   -webkit-background-clip: text;
   color: transparent;
   letter-spacing: 2px;
-  transition: all 0.2s;
 }
 @media only screen and (max-width: 56.25em) {
   .heading-secondary {
@@ -158,10 +157,6 @@ body {
   .heading-secondary {
     font-size: 2.5rem;
   }
-}
-.heading-secondary:hover {
-  transform: skewY(2deg) skewX(15deg) scale(1.1);
-  text-shadow: 0.5rem 1rem 2rem rgba(0, 0, 0, 0.2);
 }
 
 .heading-tertiary {
