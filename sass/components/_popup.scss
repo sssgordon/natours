@@ -101,4 +101,57 @@
             color: variables.$color-primary;
         }
     }
+
+    @media only screen and (max-width: 87em) {
+        &__right {
+            padding: 1rem 2rem;
+        }
+
+        &__text {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+        }
+    }
+
+    @include mixins.respond(tab-land) {
+        &__content {
+            @include mixins.absCenter;
+
+            width: 75%;
+            display: block; // parent element: table
+        }
+
+        &__left {
+            display: none; // child element: table-cell; this makes left and right the same height, easy for vertical align center
+        }
+
+        &__right {
+            width: 100%;
+            display: block; // child element: table-cell
+            padding: 1.5rem 3rem;
+            @include mixins.clearfix;
+
+            & .btn {
+                // selects the button
+                float: right;
+            }
+        }
+    }
+
+    @include mixins.respond(phone) {
+        &__text {
+            margin-bottom: 2rem;
+
+            -moz-column-count: 1;
+            column-count: 1; // splits the paragraph into 2 columns
+        }
+
+        &__close {
+            &:link,
+            &:visited {
+                top: 1.3rem;
+                right: 1.3rem;
+            }
+        }
+    }
 }
