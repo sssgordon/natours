@@ -8,9 +8,7 @@
 
 Natours is a mock website for a nature tourism agency :airplane: 
 
-This project demonstrates my knowledge with **Sass**, **responsive design**, **browser support**, **CSS architecture**, and **CSS animations**. The website is designed with **float layout** with vanilla CSS. I employ the **7-1 Sass architecture** and **BEM CSS methodology** throughout to organize my files. The website is also responsively designed to fit different screen widths and resolutions. You're welcome to open the link above on a mobile device to see the difference!
-
-This project is modelled after Jonas Schmedtmann's [course](https://www.udemy.com/course/advanced-css-and-sass/) on Udemy.
+This project demonstrates my knowledge of **Sass**, **responsive design**, **browser support**, **CSS architecture**, and **CSS animations**. The website is designed with **float layout** with vanilla CSS. I employ the **7-1 Sass architecture** and **BEM CSS methodology** throughout to organize my files. The website is also responsively designed to fit different screen widths and resolutions. You're welcome to open the link above on a mobile device to see the difference!
 
 ## Table of contents
 
