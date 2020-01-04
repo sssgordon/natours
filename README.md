@@ -23,7 +23,7 @@ This project demonstrates my knowledge of **Sass**, **responsive design**, **bro
 
 ## Goals of this project
 
-:point_down: **Click links to view some samples in this project** :point_down:
+:eyes::point_down: **Click links to view some samples in this project** :point_down::eyes:
 
 The main goals of this project is to implement:
 * Sass
