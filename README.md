@@ -2,7 +2,7 @@
 
 ## :palm_tree: [Checkout the deployed version here!](https://agile-sea-24801.herokuapp.com/index.html) :palm_tree:
 
-*GIF*
+![screenshot of website](https://github.com/sssgordon/natours/blob/master/img/screenshot.png)
 
 ## What this project is about
 
