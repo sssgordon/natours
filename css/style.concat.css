@@ -1107,6 +1107,8 @@ body {
 }
 @supports (-webkit-backdrop-filter: blur(10px)) or (backdrop-filter: blur(10px)) {
   .popup {
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
     background-color: rgba(0, 0, 0, 0.3);
   }
 }
@@ -1186,11 +1188,6 @@ body {
 }
 @media only screen and (max-width: 75em) {
   .popup__content {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 75%;
     display: block;
   }
   .popup__left {
@@ -1542,6 +1539,7 @@ body {
   right: 0;
   z-index: 1500;
   opacity: 0;
+  overflow: hidden;
   transition: width 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55), opacity 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
 .navigation__list {

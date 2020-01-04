@@ -67,6 +67,8 @@
 
         opacity: 0;
 
+        overflow: hidden;
+
         transition: width 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55),
             // easeInOutBack
                 opacity 0.8s cubic-bezier(
@@ -133,6 +135,7 @@
     &__checkbox:checked ~ &__nav {
         opacity: 1;
         width: 100%;
+        // right: 0;
         visibility: visible;
     }
 

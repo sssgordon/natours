@@ -18,6 +18,8 @@
     @supports (-webkit-backdrop-filter: blur(10px)) or
         (backdrop-filter: blur(10px)) {
         // if this property is supported, then this:
+        -webkit-backdrop-filter: blur(10px);
+        backdrop-filter: blur(10px);
         background-color: rgba(variables.$color-black, 0.3);
     }
     // backdrop-filter works when there's something in the background of THIS element
@@ -72,6 +74,7 @@
         hyphens: auto; // need to define document language;
     }
 
+    // Open states
     &:target {
         // when the anchor brings to this target
         opacity: 1;
@@ -115,9 +118,6 @@
 
     @include mixins.respond(tab-land) {
         &__content {
-            @include mixins.absCenter;
-
-            width: 75%;
             display: block; // parent element: table
         }
 
