@@ -13,25 +13,20 @@ This project demonstrates my knowledge of **Sass**, **responsive design**, **bro
 ## Table of contents
 
 * [Technologies used](#technologies-used)
-* [Goals of this project](#goals-of-this-project)
 * [Credits](#credits)
 
 ## Technologies used
 
-* Sass
-* Responsive design
-
-## Goals of this project
-
 :eyes::point_down: **Click links to view some samples in this project** :point_down::eyes:
 
-The main goals of this project is to implement:
 * Sass
     * [7-1 architecture](https://github.com/sssgordon/natours/tree/master/sass)
-         * [Variables](https://github.com/sssgordon/natours/blob/master/sass/abstracts/_variables.scss)
-         * [Mixins](https://github.com/sssgordon/natours/blob/master/sass/abstracts/_mixins.scss)
+    * [Variables](https://github.com/sssgordon/natours/blob/master/sass/abstracts/_variables.scss)
+    * [Mixins](https://github.com/sssgordon/natours/blob/master/sass/abstracts/_mixins.scss)
 * [BEM methodology (line: 20 navigation class)](https://github.com/sssgordon/natours/blob/master/index.html)
 * [CSS animations](https://github.com/sssgordon/natours/blob/master/sass/base/_animations.scss)
+    * [Checkbox hack (line: 131)](https://github.com/sssgordon/natours/blob/master/sass/layout/_navigation.scss)
+    * [Custom radio buttons (line: 72)](https://github.com/sssgordon/natours/blob/master/sass/components/_form.scss)
 * Responsive design
     * [Media query manager](https://github.com/sssgordon/natours/blob/master/sass/abstracts/_mixins.scss)
     * [Responsive images (line: 22)](https://github.com/sssgordon/natours/blob/master/sass/layout/_header.scss)
